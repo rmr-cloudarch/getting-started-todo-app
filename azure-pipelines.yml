@@ -8,8 +8,8 @@ steps:
   - task: Docker@2
     displayName: 'Build and Push Docker Image'
     inputs:
-      containerRegistry: 'dockerHubConnection'
-      repository: '<DockerHub-username>/my-todo-app'
+      containerRegistry: 'sc_Docker'
+      repository: 'reyesmelvinr/my-todo-app'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
       tags: 'latest'
@@ -17,6 +17,6 @@ steps:
   - task: AzureWebAppContainer@1
     displayName: 'Deploy to Azure App Service'
     inputs:
-      azureSubscription: 'azureSubscription'
+      azureSubscription: 'MyFreeAzure'
       appName: 'my-todo-app'
       imageName: 'reyesmelvinr/my-todo-app:latest'
